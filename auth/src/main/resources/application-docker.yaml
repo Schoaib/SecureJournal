@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: auth
+server:
+  port : 8200
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
+
+
+secure-journal.security.jwt.secret: thisIsMyJwTsecRet
+secure-journal.security.jwt.url: /auth/**
+
+

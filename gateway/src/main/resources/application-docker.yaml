@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: gateway
+server:
+  port : 8762
+
+eureka:
+  client:   
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
+
+zuul: 
+  ribbon:
+    eager-load:
+      enabled: true
+      clients: auth, entries, analyzer
+  ignoredServices: '*'
+  routes:
+    auth: 
+      path: /auth/**
+      serviceId: auth
+      sensitiveHeaders: Cookie,Set-Cookie
+      stripPrefix: false
+    entries:
+      path: /entries/**
+      serviceId: entries
+    analyzer:
+      path: /analyzer/**
+      serviceId: analyzer
+
+secure-journal.security.jwt.secret: thisIsMyJwTsecRet
+secure-journal.security.jwt.url: /auth/**
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+ribbon:
+  ReadTimeout: 100000
+  ConnectTimeout: 100000 

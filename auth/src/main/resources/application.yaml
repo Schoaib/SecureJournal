@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: auth
+server:
+  port : 8200
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+secure-journal.security.jwt.secret: thisIsMyJwTsecRet
+secure-journal.security.jwt.url: /login/**
+
+
+# Disable the spring security default configuration from spring-boot-actuator
+spring.security.enabled: false
+management.security.enabled: true
+security.basic.enabled: false

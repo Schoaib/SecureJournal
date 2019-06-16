@@ -1,0 +1,67 @@
+version: '3.7'
+services:
+  discovery:
+    build: ./discovery
+    networks:
+      - secure-network    
+    ports:
+      - "8761:8761"
+      - "18787:8787"
+
+  gateway:
+    build: ./gateway
+    ports:
+      - "8762:8762"
+      - "28787:8787"
+    networks:
+      - secure-network
+    depends_on:
+      - discovery
+
+  entries:
+    build: ./entries
+    ports:
+      - "8100:8100"
+      - "38787:8787"    
+    networks:
+      - secure-network
+    depends_on:
+      - analyzer  
+
+  auth:
+    build: ./auth
+    ports:
+      - "8200:8200"
+      - "48787:8787"    
+    networks:
+      - secure-network
+    depends_on:
+      - gateway  
+
+  analyzer:
+    build: ./text-analyzer
+    ports:
+      - "8300:8300"
+      - "58787:8787"    
+    networks:
+      - secure-network   
+    depends_on:
+      - auth 
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:8080"
+    networks:
+      - secure-network   
+    depends_on:
+      - analyzer 
+
+networks:
+    secure-network:
+        driver: bridge      
+
+
+
+
+  

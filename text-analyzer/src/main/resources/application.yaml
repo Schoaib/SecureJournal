@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: analyzer
+
+server:
+  port : 8300
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+# Disable the spring security default configuration from spring-boot-actuator
+spring.security.enabled: false
+management.security.enabled: true
+security.basic.enabled: false

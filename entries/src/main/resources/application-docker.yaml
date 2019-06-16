@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: entries
+
+server:
+  port : 8100
+
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
+
+

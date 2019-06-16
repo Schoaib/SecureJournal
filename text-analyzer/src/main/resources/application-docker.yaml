@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: analyzer
+
+server:
+  port : 8300
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
+
+

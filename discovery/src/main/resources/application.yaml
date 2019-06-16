@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: discovery
+server:
+  port : 8761
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+
+    # Disable the spring security default configuration from spring-boot-actuator
+spring.security.enabled: false
+management.security.enabled: true
+security.basic.enabled: false
+
+
