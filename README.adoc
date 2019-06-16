@@ -1,0 +1,51 @@
+# SecureJournal
+
+
+### Project Description
+
+Secure journal entry, after login user will be able to post entries and get analysis on eh posted text.
+
+## Architecture
+### Micro services
+Micro services architecture is used to achieve the following and more
+- Highly maintainable and testable
+- Loosely coupled
+- Independently deployable
+- Organized around business capabilities.
+
+## Technology Stack
+- Java 8
+- Spring-Boot 2
+- Maven 3
+- Eureka (Service Registry/Discovery)
+- Zuul (Gateway)
+- RestTemplate (For inter service communication)
+- H2 (In Memory DB)
+- Angular 7 
+- Angular Cli
+- Docker 
+- Docker-Compose
+
+## Components
+- Discovery server to provide service registry
+- Auth service for JWT based authentication
+- Common module for common classes
+- Entries service for creating journal entries
+- Analyzer service to get analysis on the posted text
+- Gateway to provide dynamic routing, monitoring, resiliency, security to the services
+- Zipkin to provide mechanisms for sending, receiving, storing, and visualizing traces (Needs work)
+- Configuration server to centralized configurations (Needs work)
+
+## Commands
+
+```sh
+mvnw clean package && docker-compose up  --build
+```
+
+## Links
+
+Frontend: 
+http://localhost:4200/
+
+Discovery/Service Registry
+http://localhost:8761/
