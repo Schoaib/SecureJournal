@@ -39,7 +39,7 @@ Micro services architecture is used to achieve the following and more
 ## Commands
 
 ```sh
-mvnw clean package && docker-compose up  --build
+mvnw clean package && docker-compose up
 ```
 
 ## Links
